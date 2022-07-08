@@ -1,0 +1,245 @@
+/** @format */
+
+.workImg {
+	object-fit: cover;
+	width: 100%;
+	height: 600px;
+	border-radius: 50px;
+}
+
+@mixin cardItem_theme($name, $delay) {
+	animation-name: $name;
+	animation-duration: 4s;
+	animation-delay: $delay;
+	opacity: 0;
+	animation-fill-mode: forwards;
+}
+
+.cardItem0 {
+	@include cardItem_theme($name: slide0, $delay: 0s);
+}
+
+.cardItem05 {
+	@include cardItem_theme($name: slide05, $delay: 0.5s);
+}
+
+@keyframes slide0 {
+	from {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+@keyframes slide05 {
+	from {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+.none {
+	opacity: 0;
+}
+
+@mixin visi_theme($name) {
+	opacity: 0;
+	animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-name: $name;
+}
+
+.visi {
+	@include visi_theme($name: slid);
+}
+
+.visi1 {
+	@include visi_theme($name: slide0);
+}
+
+.visi2 {
+	@include visi_theme($name: slide05);
+}
+
+@keyframes slid {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@mixin thirdCard_theme($delay) {
+	opacity: 0;
+	animation-name: slideUp;
+	animation-delay: $delay;
+	animation-duration: 4s;
+	animation-fill-mode: forwards;
+}
+
+.thirdCard0 {
+	@include thirdCard_theme($delay: 0s);
+}
+
+.thirdCard1 {
+	@include thirdCard_theme($delay: 0.5s);
+}
+
+.thirdCard2 {
+	@include thirdCard_theme($delay: 1s);
+}
+
+.thirdCard3 {
+	@include thirdCard_theme($delay: 1.5s);
+}
+
+.thirdCard4 {
+	@include thirdCard_theme($delay: 2s);
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(-100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+.layout {
+	background: linear-gradient(
+		217deg,
+		rgba(206, 218, 236, 0.1),
+		rgba(157, 245, 255, 0.1),
+		rgba(190, 249, 255, 0.1)
+	);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.fade1200 {
+	opacity: 1;
+}
+
+@media screen and (max-width: 1201px) {
+	.fade1200 {
+		animation-name: fade1200b;
+		animation-duration: 4s;
+		opacity: 1;
+	}
+	@keyframes fade1200b {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+@media screen and (min-width: 1201px) {
+	.fade1200 {
+		animation-name: fade1200c;
+		animation-duration: 4s;
+		opacity: 1;
+	}
+	@keyframes fade1200c {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+@media screen and (max-width: 901px) {
+	.fade900 {
+		animation-name: fade900b;
+		animation-duration: 4s;
+		opacity: 1;
+	}
+	@keyframes fade900b {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+@media screen and (min-width: 901px) {
+	.fade900 {
+		animation-name: fade900c;
+		animation-duration: 4s;
+		opacity: 1;
+	}
+	@keyframes fade900c {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+.carousel {
+	max-width: 1200px;
+	height: 600px;
+	margin: auto;
+	border-radius: 50px;
+	overflow: hidden;
+}
+.contentBox {
+	background: linear-gradient(
+			217deg,
+			rgba(181, 243, 255, 0.7),
+			rgba(181, 214, 255, 0.7) 70.71%
+		),
+		linear-gradient(127deg, rgba(65, 112, 166, 0.7), rgba(0, 255, 0, 0) 70.71%),
+		linear-gradient(336deg, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0) 70.71%);
+}
+
+.expand {
+	animation-name: expanding;
+	animation-duration: 5s;
+	width: 10%;
+	animation-fill-mode: forwards;
+	.expand2 {
+		animation-name: expanding2;
+		animation-duration: 10s;
+		animation-fill-mode: forwards;
+	}
+}
+@keyframes expanding {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+@keyframes expanding2 {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
