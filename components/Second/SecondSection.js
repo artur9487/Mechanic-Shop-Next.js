@@ -29,7 +29,7 @@ const SecondSection = ({ matches, matches3 }) => {
 						overflow: 'hidden'
 					}}>
 					<CardMedia>
-						<Image src={img} objectFit='cover' layout='fill' />
+						<Image src={img} objectFit='cover' layout='fill' alt='image' />
 					</CardMedia>
 				</Card>
 			</LayoutSection>
@@ -57,6 +57,7 @@ const SecondSection = ({ matches, matches3 }) => {
 										src={`/Group/${indx}.jpg`}
 										objectFit='cover'
 										layout='fill'
+										alt='image'
 									/>
 								</CardMedia>
 								<CardContent>

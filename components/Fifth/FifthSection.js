@@ -83,7 +83,12 @@ const FifthSection = ({ matches, matches3 }) => {
 												borderRadius: 5,
 												overflow: 'hidden'
 											}}>
-											<Image src={avatar} objectFit='cover' layout='fill' />
+											<Image
+												src={avatar}
+												objectFit='cover'
+												layout='fill'
+												alt='image'
+											/>
 										</Box>
 									) : null}
 

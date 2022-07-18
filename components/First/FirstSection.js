@@ -34,6 +34,7 @@ const FirstSection = ({ myRef, matches, matches3 }) => {
 										objectFit='cover'
 										layout='fill'
 										src={img}
+										alt='image'
 									/>
 								</Box>
 							</Box>
@@ -56,6 +57,7 @@ const FirstSection = ({ myRef, matches, matches3 }) => {
 										objectFit='cover'
 										layout='fill'
 										src={img2}
+										alt='image'
 									/>
 								</Box>
 							</Box>
@@ -69,7 +71,7 @@ const FirstSection = ({ myRef, matches, matches3 }) => {
 								top: 0,
 								left: 0
 							}}>
-							<Image objectFit='cover' layout='fill' src={img} />
+							<Image objectFit='cover' layout='fill' src={img} alt='image' />
 						</Box>
 					)}
 
