@@ -1,13 +1,13 @@
 /** @format */
 
-import { Typography, Box, Stack } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import styles from '/styles/Homes.module.scss';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import Image from 'next/Image';
+import Image from 'next/image';
 
 const FourthSection = ({ matches3 }) => {
 	const [index, setIndex] = useState(0);
