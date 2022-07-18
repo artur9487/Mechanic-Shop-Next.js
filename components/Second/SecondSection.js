@@ -8,12 +8,13 @@ import { CardMedia, CardContent } from '@mui/material';
 import LayoutSection from './LayoutSection';
 import styles from '/styles/Homes.module.scss';
 
-const SecondSection = ({ matches }) => {
+const SecondSection = ({ matches, matches3 }) => {
 	return (
-		<Stack direction='column' spacing={4}>
+		<Stack className={styles.fade1200} direction='column' spacing={4}>
 			<LayoutSection
 				animation={styles.visi1}
 				matches={matches}
+				matches3={matches3}
 				direction='row'
 				mainText='Historical Perspective'
 				text='Our group exists for 2000 years. Every year we are developing
@@ -21,12 +22,11 @@ const SecondSection = ({ matches }) => {
 				the best from the best.'>
 				<Card
 					sx={{
-						minWidth: 400,
-						minHeight: 300,
+						width: !matches3 ? 400 : 300,
+						minHeight: !matches ? 300 : 180,
 						position: 'relative',
 						borderRadius: 10,
-						overflow: 'hidden',
-						margin: 'auto'
+						overflow: 'hidden'
 					}}>
 					<CardMedia>
 						<Image src={img} objectFit='cover' layout='fill' />
@@ -36,6 +36,7 @@ const SecondSection = ({ matches }) => {
 			<LayoutSection
 				animation={styles.visi2}
 				matches={matches}
+				matches3={matches3}
 				direction='row-reverse'
 				mainText='Our Team'
 				text='Our team is quealifited to do the most 
@@ -46,8 +47,8 @@ const SecondSection = ({ matches }) => {
 							<Card
 								key={indx}
 								sx={{
-									width: 200,
-									height: 300,
+									width: !matches3 ? 200 : 100,
+									height: !matches3 ? 300 : 190,
 									borderRadius: 5,
 									overflow: 'hidden'
 								}}>

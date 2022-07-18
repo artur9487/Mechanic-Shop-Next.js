@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import SlideComp from './SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const LayoutComp = ({ children, title, myRef, matches }) => {
+const LayoutComp = ({ children, title, myRef, matches, matches3 }) => {
 	return (
 		<>
 			<section>
@@ -11,13 +11,14 @@ const LayoutComp = ({ children, title, myRef, matches }) => {
 					ref={myRef}
 					sx={{
 						height: !matches ? '100vh' : '100%',
-						p: 5,
+						px: !matches3 ? 5 : 4,
+						py: !matches3 ? 5 : 4,
 						position: 'relative'
 					}}>
 					<Box>
 						<SlideComp slide={styles.visi}>
 							<Typography
-								sx={{ color: 'black', mb: 7, fontFamily: 'Orbitron' }}
+								sx={{ color: 'black', mb: 5, fontFamily: 'Orbitron' }}
 								variant='h4'
 								fontWeight={600}
 								textAlign='center'>

@@ -18,7 +18,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { useState, useRef, useEffect, createRef } from 'react';
 import styles from '/styles/Homes.module.scss';
 
-const ThirdSection = ({ matches2 }) => {
+const ThirdSection = ({ matches2, matches3 }) => {
 	const cardRef = useRef(null);
 	const [isVisible, setVisible] = useState(false);
 	const iconSize = 100;
@@ -40,7 +40,7 @@ const ThirdSection = ({ matches2 }) => {
 			styl: styles.thirdCard2
 		},
 		{
-			name: 'Teleportations',
+			name: 'Refueling',
 			comp: <MeetingRoomIcon style={{ fontSize: iconSize }} />,
 			styl: styles.thirdCard3
 		}
@@ -131,7 +131,7 @@ const ThirdSection = ({ matches2 }) => {
 											border: 3,
 											borderRadius: 5,
 											width: 200,
-											height: '100%'
+											height: !matches3 ? '100%' : '90%'
 										}}>
 										<CardMedia
 											sx={{
@@ -165,12 +165,12 @@ const ThirdSection = ({ matches2 }) => {
 				<Stack
 					direction='row'
 					justifyContent='center'
-					sx={{ mt: 10, width: '100%', height: 250 }}>
+					sx={{ mt: !matches3 ? 10 : 3, width: '100%', height: 250 }}>
 					<Card
 						className={styles.thirdCard4}
 						ref={cardRef}
 						sx={{
-							height: '100%',
+							height: !matches3 ? '100%' : '80%',
 							width: 400,
 							borderColor: 'black',
 							border: 3,
@@ -184,7 +184,7 @@ const ThirdSection = ({ matches2 }) => {
 							</Typography>
 
 							<Typography
-								sx={{ fontFamily: 'Orbitron', fontSize: 60 }}
+								sx={{ fontFamily: 'Orbitron', fontSize: !matches3 ? 60 : 40 }}
 								textAlign='center'>
 								<>{isVisible ? <CountUp end={526784} /> : null}</>
 							</Typography>

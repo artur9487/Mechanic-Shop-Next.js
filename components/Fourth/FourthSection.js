@@ -1,14 +1,15 @@
 /** @format */
 
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Stack } from '@mui/material';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import styles from '/styles/Homes.module.scss';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Image from 'next/Image';
 
-const FourthSection = () => {
+const FourthSection = ({ matches3 }) => {
 	const [index, setIndex] = useState(0);
 
 	const handleSelect = (selectedIndex, e) => {
@@ -34,36 +35,49 @@ const FourthSection = () => {
 
 	return (
 		<>
-			<Carousel
-				nextIcon={<ArrowForwardIosIcon sx={iconData} />}
-				prevIcon={<ArrowBackIosIcon sx={iconData} />}
-				className={(styles.carousel, styles.visi)}
-				activeIndex={index}
-				onSelect={handleSelect}>
-				{obj.map((item, indx) => {
-					return (
-						<Carousel.Item key={indx}>
-							<img className={styles.workImg} src={item.photo} alt='some img' />
-							<Carousel.Caption>
-								<Box
-									sx={{
-										p: 1,
-										margin: 'auto',
-										width: 400,
-										borderRadius: 20
-									}}
-									className={styles.contentBox}>
-									<Typography
-										variant='h4'
-										sx={{ fontFamily: 'Orbitron', color: 'black' }}>
-										{item.title}
-									</Typography>
-								</Box>
-							</Carousel.Caption>
-						</Carousel.Item>
-					);
-				})}
-			</Carousel>
+			<Box
+				sx={{
+					position: 'relative',
+					width: '100%'
+				}}>
+				<Box sx={{ maxWidth: 900, margin: 'auto' }}>
+					<Carousel
+						nextIcon={<ArrowForwardIosIcon sx={iconData} />}
+						prevIcon={<ArrowBackIosIcon sx={iconData} />}
+						className={[styles.carousel, styles.visi]}
+						activeIndex={index}
+						onSelect={handleSelect}>
+						{obj.map((item, indx) => {
+							return (
+								<Carousel.Item className={styles.carouselItem} key={indx}>
+									<Image
+										objectFit='cover'
+										layout='fill'
+										src={item.photo}
+										alt='some img'
+									/>
+									<Carousel.Caption>
+										<Box
+											sx={{
+												p: 1,
+												margin: 'auto',
+												width: !matches3 ? 400 : 200,
+												borderRadius: 20
+											}}
+											className={styles.contentBox}>
+											<Typography
+												variant={!matches3 ? 'h4' : 'h6'}
+												sx={{ fontFamily: 'Orbitron', color: 'black' }}>
+												{item.title}
+											</Typography>
+										</Box>
+									</Carousel.Caption>
+								</Carousel.Item>
+							);
+						})}
+					</Carousel>
+				</Box>
+			</Box>
 		</>
 	);
 };

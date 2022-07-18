@@ -30,6 +30,7 @@ export default function Home() {
 
 	const matches = useMediaQuery('(max-width:1200px');
 	const matches2 = useMediaQuery('(max-width:900px');
+	const matches3 = useMediaQuery('(max-width:600px');
 
 	const myRef1 = useRef(null);
 	const myRef2 = useRef(null);
@@ -56,23 +57,54 @@ export default function Home() {
 					myRef4={myRef4}
 					myRef5={myRef5}
 					myRef6={myRef6}
+					matches={matches}
+					matches2={matches2}
+					matches3={matches3}
 				/>
-				<FirstSection myRef={myRef1} matches={matches} />
+				<FirstSection myRef={myRef1} matches={matches} matches3={matches3} />
 				<Box className={styles.layout}>
-					<LayoutComp myRef={myRef2} matches={matches} title='About Us'>
-						<SecondSection matches={matches} matches2={matches2} />
+					<LayoutComp
+						myRef={myRef2}
+						matches={matches}
+						matches3={matches3}
+						title='About Us'>
+						<SecondSection
+							matches={matches}
+							matches2={matches2}
+							matches3={matches3}
+						/>
 					</LayoutComp>
-					<LayoutComp myRef={myRef3} matches={matches} title='Offert'>
-						<ThirdSection matches={matches} matches2={matches2} />
+					<LayoutComp
+						myRef={myRef3}
+						matches={matches}
+						matches3={matches3}
+						title='Offer'>
+						<ThirdSection
+							matches={matches}
+							matches2={matches2}
+							matches3={matches3}
+						/>
 					</LayoutComp>
-					<LayoutComp myRef={myRef4} matches={matches} title='Gallery'>
-						<FourthSection />
+					<LayoutComp
+						myRef={myRef4}
+						matches={matches}
+						matches3={matches3}
+						title='Gallery'>
+						<FourthSection matches3={matches3} />
 					</LayoutComp>
-					<LayoutComp myRef={myRef5} matches={matches} title='Recomendation'>
-						<FifthSection matches={matches} />
+					<LayoutComp
+						myRef={myRef5}
+						matches={matches}
+						matches3={matches3}
+						title='Recomendation'>
+						<FifthSection matches={matches} matches3={matches3} />
 					</LayoutComp>
-					<LayoutComp myRef={myRef6} matches={matches} title='Contacts'>
-						<SixthSection matches={matches} />
+					<LayoutComp
+						myRef={myRef6}
+						matches={matches}
+						matches3={matches3}
+						title='Contacts'>
+						<SixthSection matches={matches} matches3={matches3} />
 					</LayoutComp>
 				</Box>
 			</ThemeProvider>

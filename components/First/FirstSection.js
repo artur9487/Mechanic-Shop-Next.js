@@ -6,7 +6,7 @@ import img2 from '../../public/mech2.gif';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const FirstSection = ({ myRef, matches }) => {
+const FirstSection = ({ myRef, matches, matches3 }) => {
 	return (
 		<>
 			<section>
@@ -15,7 +15,7 @@ const FirstSection = ({ myRef, matches }) => {
 					sx={{
 						width: '100%',
 						position: 'relative',
-						height: '100vh'
+						height: '110vh'
 					}}>
 					{!matches ? (
 						<>
@@ -46,7 +46,11 @@ const FirstSection = ({ myRef, matches }) => {
 									left: '50%'
 								}}>
 								<Box
-									sx={{ position: 'relative', width: '100%', height: '100%' }}>
+									sx={{
+										position: 'relative',
+										width: '100%',
+										height: '100%'
+									}}>
 									<Image
 										priority={true}
 										objectFit='cover'
@@ -83,14 +87,14 @@ const FirstSection = ({ myRef, matches }) => {
 							<Box
 								className={styles.contentBox}
 								sx={{
-									p: 10,
+									p: !matches3 ? 10 : 7,
 									width: '100%',
 									height: '100%'
 								}}>
 								<Typography
 									fontWeight={700}
 									textAlign='center'
-									fontSize={60}
+									fontSize={!matches3 ? 60 : 30}
 									sx={{
 										color: 'black',
 										margin: 'auto',
@@ -100,7 +104,7 @@ const FirstSection = ({ myRef, matches }) => {
 								</Typography>
 								<Typography
 									textAlign='center'
-									fontSize={20}
+									fontSize={!matches3 ? 20 : 15}
 									sx={{
 										color: 'black',
 										margin: 'auto',

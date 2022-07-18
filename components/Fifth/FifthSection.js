@@ -5,7 +5,7 @@ import Rating from '@mui/material/Rating';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const FifthSection = ({ matches }) => {
+const FifthSection = ({ matches, matches3 }) => {
 	const obj = [
 		{
 			avatar: '/Avatars/0.jpg',
@@ -41,7 +41,7 @@ const FifthSection = ({ matches }) => {
 				const { avatar, comment, date, rating } = item;
 				return (
 					<Stack
-						className='fade1200'
+						className={styles.fade1200}
 						key={indx}
 						direction='column'
 						sx={{ width: '100%' }}
@@ -60,7 +60,7 @@ const FifthSection = ({ matches }) => {
 									marginRight: !matches ? 'initial' : 'auto',
 									borderRadius: 10,
 									border: 3,
-									width: !matches ? '45%' : '80%',
+									width: !matches ? '45%' : !matches3 ? '80%' : '100%',
 									height: 150,
 									p: 3
 								}}>
@@ -74,26 +74,42 @@ const FifthSection = ({ matches }) => {
 										width: '100%',
 										height: '100%'
 									}}>
-									<Box
-										sx={{
-											position: 'relative',
-											width: '25%',
-											height: '100%',
+									{!matches3 ? (
+										<Box
+											sx={{
+												position: 'relative',
+												width: '25%',
+												height: '100%',
+												borderRadius: 5,
+												overflow: 'hidden'
+											}}>
+											<Image src={avatar} objectFit='cover' layout='fill' />
+										</Box>
+									) : null}
 
-											borderRadius: 5,
-											overflow: 'hidden'
-										}}>
-										<Image src={avatar} objectFit='cover' layout='fill' />
-									</Box>
-									<Stack spacing={2} sx={{ width: '75%' }} direction='column'>
-										<Stack direction='row' spacing={4} alignItems='center'>
+									<Stack
+										spacing={2}
+										sx={{ width: !matches3 ? '75%' : '100%' }}
+										direction='column'>
+										<Stack
+											direction='row'
+											spacing={!matches3 ? 4 : 2}
+											alignItems='center'>
 											<Typography
-												sx={{ fontFamily: 'Orbitron', color: 'gray' }}>
+												sx={{
+													fontFamily: 'Orbitron',
+													color: 'gray',
+													fontSize: !matches3 ? 13 : 12
+												}}>
 												{date}
 											</Typography>
 											<Rating name='read-only' value={rating} readOnly />
 										</Stack>
-										<Typography sx={{ fontFamily: 'Orbitron', fontSize: 13 }}>
+										<Typography
+											sx={{
+												fontFamily: 'Orbitron',
+												fontSize: !matches3 ? 13 : 12
+											}}>
 											{comment}
 										</Typography>
 									</Stack>

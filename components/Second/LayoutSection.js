@@ -8,7 +8,8 @@ const LayoutSection = ({
 	direction,
 	text,
 	mainText,
-	animation
+	animation,
+	matches3
 }) => {
 	return (
 		<Box sx={{ width: '100%', height: '50%' }}>
@@ -19,11 +20,17 @@ const LayoutSection = ({
 					spacing={!matches ? 0 : 3}
 					alignItems='center'
 					sx={{ width: '100%', height: '100%' }}>
-					<Box sx={{ width: !matches ? '50%' : '75%' }}>
+					<Box
+						sx={{
+							width: !matches ? '50%' : !matches3 ? '75%' : '100%'
+						}}>
 						<Stack
 							direction='column'
 							spacing={2}
-							sx={{ width: '75%', margin: 'auto' }}>
+							sx={{
+								width: !matches3 ? '75%' : '100%',
+								margin: 'auto'
+							}}>
 							<Typography
 								sx={{ fontFamily: 'Orbitron' }}
 								textAlign='center'

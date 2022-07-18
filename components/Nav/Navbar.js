@@ -2,15 +2,22 @@
 import { IconButton, Stack, Typography } from '@mui/material';
 import SlideComp from '../SlideComp';
 import { useRef, useState } from 'react';
-import { useMediaQuery } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import styles from '/styles/Homes.module.scss';
 
-const Navbar = ({ myRef1, myRef2, myRef3, myRef4, myRef5, myRef6 }) => {
-	const matches = useMediaQuery('(max-width:900px');
-	const matches2 = useMediaQuery('(max-width:1200px)');
+const Navbar = ({
+	myRef1,
+	myRef2,
+	myRef3,
+	myRef4,
+	myRef5,
+	myRef6,
+	matches,
+	matches2,
+	matches3
+}) => {
 	const func = (refik) => {
 		return window.scroll({
 			behavior: 'smooth',
@@ -40,6 +47,20 @@ const Navbar = ({ myRef1, myRef2, myRef3, myRef4, myRef5, myRef6 }) => {
 		setAnchorEl(null);
 	};
 
+	const menuObj = obj.map((item, indx) => {
+		return (
+			<MenuItem
+				key={indx}
+				sx={{ px: 4, py: 1, cursor: 'pointer' }}
+				onClick={() => {
+					item.action();
+					handleClose();
+				}}>
+				<Typography sx={{ fontFamily: 'Orbitron' }}>{item.name}</Typography>
+			</MenuItem>
+		);
+	});
+
 	return (
 		<>
 			<nav className='nav'>
@@ -51,7 +72,9 @@ const Navbar = ({ myRef1, myRef2, myRef3, myRef4, myRef5, myRef6 }) => {
 						position: 'fixed',
 						top: 0,
 						right: 0,
-						zIndex: 999
+						zIndex: 999,
+						left: 0,
+						bottom: 100
 					}}>
 					<SlideComp slide={styles.visi}>
 						<Stack
@@ -63,7 +86,6 @@ const Navbar = ({ myRef1, myRef2, myRef3, myRef4, myRef5, myRef6 }) => {
 							}}>
 							{!matches ? (
 								<Stack
-									className={styles.fade900}
 									sx={{
 										width: '100vw'
 									}}
@@ -72,7 +94,10 @@ const Navbar = ({ myRef1, myRef2, myRef3, myRef4, myRef5, myRef6 }) => {
 									justifyContent='space-evenly'>
 									<Typography
 										variant='h5'
-										sx={{ color: 'white', fontFamily: 'Orbitron' }}>
+										sx={{
+											color: 'white',
+											fontFamily: 'Orbitron'
+										}}>
 										Mechanical Shop
 									</Typography>
 									<Stack
@@ -103,43 +128,57 @@ const Navbar = ({ myRef1, myRef2, myRef3, myRef4, myRef5, myRef6 }) => {
 								</Stack>
 							) : (
 								<Stack
-									className={styles.fade900}
 									direction='row'
-									sx={{ width: '100vw' }}
+									sx={{
+										width: '100vw',
+										borderColor: 'white'
+									}}
 									justifyContent='center'
 									alignItems='center'>
 									<Typography
-										variant='h4'
+										variant={!matches3 ? 'h4' : 'h5'}
 										sx={{ color: 'white', fontFamily: 'Orbitron' }}>
 										Mechanical Shop
 									</Typography>
 									<IconButton onClick={handleClick}>
 										<MenuIcon sx={{ fontSize: 40, color: 'white' }} />
 									</IconButton>
-									<Menu
-										id='basic-menu'
-										anchorEl={anchorEl}
-										open={open}
-										onClose={handleClose}
-										MenuListProps={{
-											'aria-labelledby': 'basic-button'
-										}}>
-										{obj.map((item, indx) => {
-											return (
-												<MenuItem
-													key={indx}
-													sx={{ px: 4, py: 1, cursor: 'pointer' }}
-													onClick={() => {
-														item.action();
-														handleClose();
-													}}>
-													<Typography sx={{ fontFamily: 'Orbitron' }}>
-														{item.name}
-													</Typography>
-												</MenuItem>
-											);
-										})}
-									</Menu>
+									{matches3 ? (
+										<Menu
+											id='basic-menu'
+											anchorEl={anchorEl}
+											sx={{
+												width: 300,
+												height: 500
+											}}
+											anchorPosition={{ top: 100, left: 150 }}
+											open={open}
+											onClose={handleClose}
+											MenuListProps={{
+												'aria-labelledby': 'basic-button'
+											}}>
+											{menuObj}
+										</Menu>
+									) : (
+										<Menu
+											id='basic-menu'
+											anchorEl={anchorEl}
+											sx={{
+												width: 300,
+												height: 500
+											}}
+											anchorOrigin={{
+												vertical: 'bottom',
+												horizontal: 'left'
+											}}
+											open={open}
+											onClose={handleClose}
+											MenuListProps={{
+												'aria-labelledby': 'basic-button'
+											}}>
+											{menuObj}
+										</Menu>
+									)}
 								</Stack>
 							)}
 						</Stack>

@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from '@mui/material';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const SixthSection = ({ matches }) => {
+const SixthSection = ({ matches, matches3 }) => {
 	return (
 		<>
 			<Stack
@@ -14,8 +14,8 @@ const SixthSection = ({ matches }) => {
 				sx={{ width: '100%', height: !matches ? '80%' : 1000 }}>
 				<Box
 					sx={{
-						width: !matches ? '50%' : '75%',
-						height: !matches ? '80%' : '45%'
+						width: !matches ? '50%' : !matches3 ? '75%' : '100%',
+						height: !matches ? '80%' : !matches3 ? '45%' : '35%'
 					}}>
 					<SlideComp slide={styles.cardItem0}>
 						<Box sx={{ width: '100%', height: '100%' }}>
@@ -29,7 +29,7 @@ const SixthSection = ({ matches }) => {
 				</Box>
 				<Box
 					sx={{
-						width: !matches ? '50%' : '75%',
+						width: !matches ? '50%' : !matches3 ? '75%' : '100%',
 						height: !matches ? '80%' : '45%'
 					}}>
 					<SlideComp slide={styles.cardItem05}>
@@ -40,27 +40,39 @@ const SixthSection = ({ matches }) => {
 								sx={{ margin: 'auto', height: '100%' }}
 								direction='column'
 								justifyContent='space-evenly'>
-								<Typography sx={{ fontFamily: 'Orbitron' }} variant='h3'>
+								<Typography
+									sx={{ fontFamily: 'Orbitron' }}
+									variant={!matches3 ? 'h3' : 'h4'}>
 									+1234567
 								</Typography>
-								<Typography sx={{ fontFamily: 'Orbitron' }} variant='h3'>
+								<Typography
+									sx={{ fontFamily: 'Orbitron' }}
+									variant={!matches3 ? 'h3' : 'h4'}>
 									Adress:
 								</Typography>
-								<Typography sx={{ fontFamily: 'Orbitron' }} variant='h5'>
+								<Typography
+									sx={{ fontFamily: 'Orbitron' }}
+									variant={!matches3 ? 'h5' : 'h6'}>
 									Mechanic Street 42
 								</Typography>
-								<Typography sx={{ fontFamily: 'Orbitron' }} variant='h3'>
+								<Typography
+									sx={{ fontFamily: 'Orbitron' }}
+									variant={!matches3 ? 'h3' : 'h4'}>
 									Hours of opening:
 								</Typography>
-								<Typography sx={{ fontFamily: 'Orbitron' }} variant='h5'>
+								<Typography
+									sx={{ fontFamily: 'Orbitron' }}
+									variant={!matches3 ? 'h5' : 'h6'}>
 									monday-Friday 7:00-16:00
 								</Typography>
-								<Typography sx={{ fontFamily: 'Orbitron' }} variant='h5'>
+								<Typography
+									sx={{ fontFamily: 'Orbitron' }}
+									variant={!matches3 ? 'h5' : 'h6'}>
 									Saturday 7:00-14:00
 								</Typography>
 								<Typography
 									sx={{ fontFamily: 'Orbitron', color: 'red' }}
-									variant='h5'>
+									variant={!matches3 ? 'h5' : 'h6'}>
 									Sunday Closet
 								</Typography>
 							</Stack>
