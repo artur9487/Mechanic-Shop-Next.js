@@ -15,7 +15,7 @@ const FirstSection = ({ myRef, matches, matches3 }) => {
 					sx={{
 						width: '100%',
 						position: 'relative',
-						height: '110vh'
+						height: '100vh'
 					}}>
 					{!matches ? (
 						<>

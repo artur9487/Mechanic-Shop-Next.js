@@ -28,8 +28,10 @@ const LayoutSection = ({
 							direction='column'
 							spacing={2}
 							sx={{
+								boxShadow: '3px 7px 10px rgba(206, 218, 236, 1)',
 								width: !matches3 ? '75%' : '100%',
-								margin: 'auto'
+								margin: 'auto',
+								p: 3
 							}}>
 							<Typography
 								sx={{ fontFamily: 'Orbitron' }}

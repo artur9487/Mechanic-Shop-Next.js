@@ -118,8 +118,8 @@
 .layout {
 	background: linear-gradient(
 		217deg,
-		rgba(206, 218, 236, 0.1),
-		rgba(157, 245, 255, 0.1),
+		rgba(206, 218, 236, 1),
+		rgba(157, 245, 255, 0.2),
 		rgba(190, 249, 255, 0.1)
 	);
 	background-position: center;
@@ -218,7 +218,6 @@
 }
 
 .carouselItem {
-	position: 'relative';
 	width: 100%;
 }
 
@@ -232,34 +231,36 @@
 		linear-gradient(336deg, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0) 70.71%);
 }
 
-.expand {
-	animation-name: expanding;
-	animation-duration: 5s;
-	width: 10%;
+@mixin push_theme($ann) {
+	animation-name: $ann;
+	animation-duration: 4s;
+	opacity: 0;
 	animation-fill-mode: forwards;
-	.expand2 {
-		animation-name: expanding2;
-		animation-duration: 10s;
-		animation-fill-mode: forwards;
-	}
-}
-@keyframes expanding {
-	0% {
-		width: 0%;
-	}
-	100% {
-		width: 100%;
-	}
 }
 
-@keyframes expanding2 {
+.right {
+	@include push_theme(right_ann);
+}
+.left {
+	@include push_theme(left_ann);
+}
+
+@keyframes right_ann {
 	0% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 0;
+		transform: translateX(-100px);
 	}
 	100% {
 		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+@keyframes left_ann {
+	0% {
+		transform: translateX(100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
 	}
 }

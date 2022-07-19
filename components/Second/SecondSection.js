@@ -22,6 +22,7 @@ const SecondSection = ({ matches, matches3 }) => {
 				the best from the best.'>
 				<Card
 					sx={{
+						boxShadow: '10px 15px 10px rgba(206, 218, 236, 1)',
 						width: !matches3 ? 400 : 300,
 						minHeight: !matches ? 300 : 180,
 						position: 'relative',
@@ -41,7 +42,15 @@ const SecondSection = ({ matches, matches3 }) => {
 				mainText='Our Team'
 				text='Our team is quealifited to do the most 
 				difficult things in the whole Universe. We are from different legue.'>
-				<Stack direction='row' spacing={3} justifyContent='center'>
+				<Stack
+					sx={{
+						py: 4,
+						px: !matches3 ? 7 : 0,
+						boxShadow: !matches3 ? '3px 7px 10px rgba(206, 218, 236, 1)' : null
+					}}
+					direction='row'
+					spacing={3}
+					justifyContent='center'>
 					{['Steve', 'Eugeny', 'Richard'].map((item, indx) => {
 						return (
 							<Card

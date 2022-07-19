@@ -12,33 +12,37 @@ const FifthSection = ({ matches, matches3 }) => {
 			comment:
 				'Yeah, the work is very fine, I am glad that I was their customer',
 			date: '10 July 2020',
-			rating: 4
+			rating: 4,
+			styl: styles.right
 		},
 		{
 			avatar: '/Avatars/1.jpg',
 			comment:
 				'Oh my, apart of that the service was done 100% fine, their served me free oil!',
 			date: '10 October 2020',
-			rating: 5
+			rating: 5,
+			styl: styles.left
 		},
 
 		{
 			avatar: '/Avatars/2.jpg',
 			comment: '%@$*( %$(*&@#$ #$%@ (*&%$ @#$89',
 			date: '10 October 2021',
-			rating: 5
+			rating: 5,
+			styl: styles.right
 		},
 		{
 			avatar: '/Avatars/3.jpg',
 			comment: 'I am their customer for 250 years and I was never disappointed',
 			date: '21 December 2021',
-			rating: 5
+			rating: 5,
+			styl: styles.left
 		}
 	];
 	return (
 		<>
 			{obj.map((item, indx) => {
-				const { avatar, comment, date, rating } = item;
+				const { avatar, comment, date, rating, styl } = item;
 				return (
 					<Stack
 						className={styles.fade1200}
@@ -46,7 +50,7 @@ const FifthSection = ({ matches, matches3 }) => {
 						direction='column'
 						sx={{ width: '100%' }}
 						alignItems='center'>
-						<SlideComp slide={styles.expand}>
+						<SlideComp slide={styl}>
 							<Stack
 								sx={{
 									bgcolor: 'white',
@@ -56,11 +60,11 @@ const FifthSection = ({ matches, matches3 }) => {
 										(indx === 3 && !matches) ||
 										matches
 											? 'auto'
-											: 'initial',
-									marginRight: !matches ? 'initial' : 'auto',
+											: '15%',
+									marginRight: !matches ? '15%' : 'auto',
 									borderRadius: 10,
-									border: 3,
-									width: !matches ? '45%' : !matches3 ? '80%' : '100%',
+									boxShadow: '10px 10px 10px rgb(219, 228, 240)',
+									width: !matches ? '50%' : !matches3 ? '80%' : '100%',
 									height: 150,
 									p: 3
 								}}>
@@ -68,7 +72,6 @@ const FifthSection = ({ matches, matches3 }) => {
 									direction='row'
 									alignItems='center'
 									spacing={4}
-									className={styles.expand2}
 									sx={{
 										bgcolor: 'white',
 										width: '100%',

@@ -6,7 +6,8 @@ import {
 	Card,
 	CardMedia,
 	Stack,
-	Grid
+	Grid,
+	Box
 } from '@mui/material';
 import BuildIcon from '@mui/icons-material/Build';
 import HighlightIcon from '@mui/icons-material/Highlight';
@@ -18,7 +19,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { useState, useRef, useEffect, createRef } from 'react';
 import styles from '/styles/Homes.module.scss';
 
-const ThirdSection = ({ matches2, matches3 }) => {
+const ThirdSection = ({ matches, matches2, matches3 }) => {
 	const cardRef = useRef(null);
 	const [isVisible, setVisible] = useState(false);
 	const iconSize = 100;
@@ -52,7 +53,7 @@ const ThirdSection = ({ matches2, matches3 }) => {
 		(element, indx) => myRefs.current[indx] ?? createRef()
 	);
 
-	useEffect(() => {
+	/*useEffect(() => {
 		const THRESHOLD = -30;
 
 		function handleHover(e, item, item2) {
@@ -97,19 +98,24 @@ const ThirdSection = ({ matches2, matches3 }) => {
 		cardRef.current.addEventListener('mouseleave', (e) =>
 			resetStyles(e, cardRef.current, cardRef.current)
 		);
-	}, []);
+	}, []);*/
 
 	return (
 		<>
 			<Grid
 				className={styles.fade900}
-				spacing={!matches2 ? 0 : 3}
+				justifyContent='center'
 				container
 				direction='row'
-				sx={{ height: !matches2 ? 300 : 600 }}>
+				sx={{
+					height: !matches2 ? 300 : 600,
+					width: !matches ? '80%' : '100%',
+					margin: 'auto'
+				}}>
 				{obj.map((item, indx) => {
 					return (
 						<Grid
+							sx={{ p: 1 }}
 							key={indx}
 							ref={myRefs.current[indx]}
 							direction='row'
@@ -121,14 +127,17 @@ const ThirdSection = ({ matches2, matches3 }) => {
 							item>
 							<SlideComp slide={item.styl}>
 								<Stack
-									direction={'row'}
+									direction='row'
 									justifyContent='center'
-									alignItems='items'
-									sx={{ width: '100%', height: '100%' }}>
+									alignItems='center'
+									sx={{
+										width: '100%',
+										height: '100%'
+									}}>
 									<Card
 										key={indx}
 										sx={{
-											border: 3,
+											boxShadow: '10px 10px 10px rgb(219, 228, 240)',
 											borderRadius: 5,
 											width: 200,
 											height: !matches3 ? '100%' : '90%'
@@ -165,15 +174,18 @@ const ThirdSection = ({ matches2, matches3 }) => {
 				<Stack
 					direction='row'
 					justifyContent='center'
-					sx={{ mt: !matches3 ? 10 : 3, width: '100%', height: 250 }}>
+					sx={{
+						mt: !matches3 ? 10 : 3,
+						width: '100%',
+						height: 250
+					}}>
 					<Card
 						className={styles.thirdCard4}
 						ref={cardRef}
 						sx={{
+							boxShadow: '10px 10px 10px rgba(219, 228, 240)',
 							height: !matches3 ? '100%' : '80%',
 							width: 400,
-							borderColor: 'black',
-							border: 3,
 							borderRadius: 5
 						}}>
 						<CardContent>
