@@ -17,7 +17,7 @@ const LayoutSection = ({
 				<Stack
 					className='fade1200'
 					direction={!matches ? direction : 'column'}
-					spacing={!matches ? 0 : 3}
+					spacing={!matches3 ? 5 : 8}
 					alignItems='center'
 					sx={{ width: '100%', height: '100%' }}>
 					<Box

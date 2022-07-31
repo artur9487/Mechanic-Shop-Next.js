@@ -77,6 +77,7 @@ const FirstSection = ({ myRef, matches, matches3 }) => {
 
 					<SlideComp slide={styles.visi}>
 						<Box
+							className={styles.fade600}
 							sx={{
 								overflow: 'hidden',
 								borderRadius: 10,

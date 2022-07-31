@@ -18,7 +18,7 @@ const FifthSection = ({ matches, matches3 }) => {
 		{
 			avatar: '/Avatars/1.jpg',
 			comment:
-				'Oh my, apart of that the service was done 100% fine, their served me free oil!',
+				'Oh my, the service was done 100% fine, their served me free oil!',
 			date: '10 October 2020',
 			rating: 5,
 			styl: styles.left
@@ -54,7 +54,7 @@ const FifthSection = ({ matches, matches3 }) => {
 							<Stack
 								sx={{
 									bgcolor: 'white',
-									mb: !matches ? 3 : 6,
+									mb: !matches ? 3 : !matches3 ? 6 : 3,
 									marginLeft:
 										(indx === 1 && !matches) ||
 										(indx === 3 && !matches) ||

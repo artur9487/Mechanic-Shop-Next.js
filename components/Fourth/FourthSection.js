@@ -60,8 +60,6 @@ const FourthSection = ({ matches3 }) => {
 							boxShadow: '3px 7px 10px rgba(206, 218, 236, 1)'
 						}}>
 						<Carousel
-							//	nextIcon={<ArrowForwardIosIcon sx={iconData} />}
-							//prevIcon={<ArrowBackIosIcon sx={iconData} />}
 							controls={false}
 							className={styles.carousel}
 							activeIndex={index}

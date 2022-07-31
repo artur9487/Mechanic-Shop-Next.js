@@ -16,7 +16,7 @@ import ScreenRotationAltIcon from '@mui/icons-material/ScreenRotationAlt';
 import CountUp from 'react-countup';
 import SlideComp from '../SlideComp';
 import VisibilitySensor from 'react-visibility-sensor';
-import { useState, useRef, useEffect, createRef } from 'react';
+import { useState, useRef, createRef } from 'react';
 import styles from '/styles/Homes.module.scss';
 
 const ThirdSection = ({ matches, matches2, matches3 }) => {
@@ -53,53 +53,6 @@ const ThirdSection = ({ matches, matches2, matches3 }) => {
 		(element, indx) => myRefs.current[indx] ?? createRef()
 	);
 
-	/*useEffect(() => {
-		const THRESHOLD = -30;
-
-		function handleHover(e, item, item2) {
-			const { clientX, currentTarget } = e;
-			const { clientWidth, offsetLeft } = currentTarget;
-
-			const horizontal = (clientX - offsetLeft) / clientWidth;
-
-			const rotateX = (THRESHOLD / 2 - horizontal * THRESHOLD).toFixed(2);
-
-			item.style.transform = `perspective(${clientWidth}px)   rotateY(${rotateX}deg) scale3d(1, 1, 1)`;
-
-			item2.style.boxShadow = `${-5 * rotateX}px 10px 20px `;
-		}
-
-		function resetStyles(e, item, item2) {
-			item.style.transform = `perspective(${e.currentTarget.clientWidth}px) rotateX(0deg)`;
-
-			item2.style.boxShadow = `0px 0px 0px`;
-		}
-
-		myRefs.current.map((item) => {
-			item.current.addEventListener('mousemove', (e) =>
-				handleHover(
-					e,
-					item.current,
-					item.current.children[0].children[0].children[0]
-				)
-			);
-			item.current.addEventListener('mouseleave', (e) =>
-				resetStyles(
-					e,
-					item.current,
-					item.current.children[0].children[0].children[0]
-				)
-			);
-		});
-
-		cardRef.current.addEventListener('mousemove', (e) =>
-			handleHover(e, cardRef.current, cardRef.current)
-		);
-		cardRef.current.addEventListener('mouseleave', (e) =>
-			resetStyles(e, cardRef.current, cardRef.current)
-		);
-	}, []);*/
-
 	return (
 		<>
 			<Grid
@@ -108,7 +61,6 @@ const ThirdSection = ({ matches, matches2, matches3 }) => {
 				container
 				direction='row'
 				sx={{
-					height: !matches2 ? 300 : 600,
 					width: !matches ? '80%' : '100%',
 					margin: 'auto'
 				}}>
@@ -132,7 +84,7 @@ const ThirdSection = ({ matches, matches2, matches3 }) => {
 									alignItems='center'
 									sx={{
 										width: '100%',
-										height: '100%'
+										height: 300
 									}}>
 									<Card
 										key={indx}

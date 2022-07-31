@@ -128,13 +128,13 @@
 }
 
 .fade1200 {
-	opacity: 1;
+	opacity: 0;
 }
 
-@media screen and (max-width: 1201px) {
+@media screen and (max-width: 1200px) {
 	.fade1200 {
 		animation-name: fade1200b;
-		animation-duration: 4s;
+		animation-duration: 3s;
 		opacity: 1;
 	}
 	@keyframes fade1200b {
@@ -150,7 +150,7 @@
 @media screen and (min-width: 1201px) {
 	.fade1200 {
 		animation-name: fade1200c;
-		animation-duration: 4s;
+		animation-duration: 3s;
 		opacity: 1;
 	}
 	@keyframes fade1200c {
@@ -163,10 +163,10 @@
 	}
 }
 
-@media screen and (max-width: 901px) {
+@media screen and (max-width: 900px) {
 	.fade900 {
 		animation-name: fade900b;
-		animation-duration: 4s;
+		animation-duration: 3s;
 		opacity: 1;
 	}
 	@keyframes fade900b {
@@ -179,13 +179,49 @@
 	}
 }
 
-@media screen and (min-width: 901px) {
+@media screen and (min-width: 900px) {
 	.fade900 {
 		animation-name: fade900c;
-		animation-duration: 4s;
+		animation-duration: 3s;
 		opacity: 1;
 	}
 	@keyframes fade900c {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+.fade600 {
+	opacity: 0;
+}
+
+@media screen and (max-width: 600px) {
+	.fade600 {
+		animation-name: fade600a;
+		animation-duration: 3s;
+		opacity: 1;
+	}
+	@keyframes fade600a {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}
+
+@media screen and (min-width: 601px) {
+	.fade600 {
+		animation-name: fade600b;
+		animation-duration: 3s;
+		opacity: 1;
+	}
+	@keyframes fade600b {
 		from {
 			opacity: 0;
 		}
