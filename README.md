@@ -1,5 +1,4 @@
 <!-- @format -->
 
-## Link to the app
-
-https://mechanic-shop-next-js.vercel.app/
+My first project. Simple single page website in which I could train my
+overall JS a CSS skills
