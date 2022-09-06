@@ -6,7 +6,7 @@ import img2 from '../../public/mech2.gif';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const FirstSection = ({ myRef, matches, matches3 }) => {
+const FirstSection = ({ myRef, maxWidth1200, maxWidth600 }) => {
 	return (
 		<>
 			<section>
@@ -17,7 +17,7 @@ const FirstSection = ({ myRef, matches, matches3 }) => {
 						position: 'relative',
 						height: '100vh'
 					}}>
-					{!matches ? (
+					{!maxWidth1200 ? (
 						<>
 							<Box
 								sx={{
@@ -90,14 +90,14 @@ const FirstSection = ({ myRef, matches, matches3 }) => {
 							<Box
 								className={styles.contentBox}
 								sx={{
-									p: !matches3 ? 10 : 7,
+									p: !maxWidth600 ? 10 : 7,
 									width: '100%',
 									height: '100%'
 								}}>
 								<Typography
 									fontWeight={700}
 									textAlign='center'
-									fontSize={!matches3 ? 60 : 30}
+									fontSize={!maxWidth600 ? 60 : 30}
 									sx={{
 										color: 'black',
 										margin: 'auto',
@@ -107,7 +107,7 @@ const FirstSection = ({ myRef, matches, matches3 }) => {
 								</Typography>
 								<Typography
 									textAlign='center'
-									fontSize={!matches3 ? 20 : 15}
+									fontSize={!maxWidth600 ? 20 : 15}
 									sx={{
 										color: 'black',
 										margin: 'auto',

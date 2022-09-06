@@ -3,26 +3,26 @@ import { Box, Stack, Typography } from '@mui/material';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const SixthSection = ({ matches, matches3 }) => {
+const SixthSection = ({ maxWidth1200, maxWidth600 }) => {
 	return (
 		<>
 			<Stack
 				className={styles.fade1200}
-				direction={!matches ? 'row' : 'column'}
+				direction={!maxWidth1200 ? 'row' : 'column'}
 				alignItems='center'
 				spacing={4}
-				sx={{ width: '100%', height: !matches ? '80%' : 1000 }}>
+				sx={{ width: '100%', height: !maxWidth1200 ? '80%' : 1000 }}>
 				<Box
 					sx={{
-						width: !matches ? '50%' : !matches3 ? '75%' : '100%',
-						height: !matches ? '80%' : !matches3 ? '45%' : '35%'
+						width: !maxWidth1200 ? '50%' : !maxWidth600 ? '75%' : '100%',
+						height: !maxWidth1200 ? '80%' : !maxWidth600 ? '45%' : '35%'
 					}}>
 					<SlideComp slide={styles.cardItem0}>
 						<Box
 							sx={{
 								width: '100%',
 								height: '100%',
-								border: !matches3 ? 30 : 15,
+								border: !maxWidth600 ? 30 : 15,
 								borderColor: 'rgba(206, 218, 236, 0.1)',
 								borderRadius: 5,
 								overflow: 'hidden',
@@ -46,14 +46,14 @@ const SixthSection = ({ matches, matches3 }) => {
 				</Box>
 				<Box
 					sx={{
-						width: !matches ? '50%' : !matches3 ? '75%' : '100%',
-						height: !matches ? '80%' : '45%'
+						width: !maxWidth1200 ? '50%' : !maxWidth600 ? '75%' : '100%',
+						height: !maxWidth1200 ? '80%' : '45%'
 					}}>
 					<SlideComp slide={styles.cardItem05}>
 						<Stack
 							direction='column'
 							sx={{
-								width: !matches3 ? '80%' : '100%',
+								width: !maxWidth600 ? '80%' : '100%',
 								margin: 'auto',
 								height: '100%',
 								boxShadow: '3px 7px 10px rgba(206, 218, 236, 1)',
@@ -66,37 +66,37 @@ const SixthSection = ({ matches, matches3 }) => {
 								justifyContent='space-evenly'>
 								<Typography
 									sx={{ fontFamily: 'Orbitron' }}
-									variant={!matches3 ? 'h3' : 'h4'}>
+									variant={!maxWidth600 ? 'h3' : 'h4'}>
 									+1234567
 								</Typography>
 								<Typography
 									sx={{ fontFamily: 'Orbitron' }}
-									variant={!matches3 ? 'h3' : 'h4'}>
+									variant={!maxWidth600 ? 'h3' : 'h4'}>
 									Adress:
 								</Typography>
 								<Typography
 									sx={{ fontFamily: 'Orbitron' }}
-									variant={!matches3 ? 'h5' : 'h6'}>
+									variant={!maxWidth600 ? 'h5' : 'h6'}>
 									Mechanic Street 42
 								</Typography>
 								<Typography
 									sx={{ fontFamily: 'Orbitron' }}
-									variant={!matches3 ? 'h3' : 'h4'}>
+									variant={!maxWidth600 ? 'h3' : 'h4'}>
 									Hours of opening:
 								</Typography>
 								<Typography
 									sx={{ fontFamily: 'Orbitron' }}
-									variant={!matches3 ? 'h5' : 'h6'}>
+									variant={!maxWidth600 ? 'h5' : 'h6'}>
 									monday-Friday 7:00-16:00
 								</Typography>
 								<Typography
 									sx={{ fontFamily: 'Orbitron' }}
-									variant={!matches3 ? 'h5' : 'h6'}>
+									variant={!maxWidth600 ? 'h5' : 'h6'}>
 									Saturday 7:00-14:00
 								</Typography>
 								<Typography
 									sx={{ fontFamily: 'Orbitron', color: 'red' }}
-									variant={!matches3 ? 'h5' : 'h6'}>
+									variant={!maxWidth600 ? 'h5' : 'h6'}>
 									Sunday Closet
 								</Typography>
 							</Stack>

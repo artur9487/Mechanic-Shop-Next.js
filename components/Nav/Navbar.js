@@ -14,9 +14,9 @@ const Navbar = ({
 	myRef4,
 	myRef5,
 	myRef6,
-	matches,
-	matches2,
-	matches3
+	maxWidth1200,
+	maxWidth900,
+	maxWidth600
 }) => {
 	const func = (refik) => {
 		return window.scroll({
@@ -84,7 +84,7 @@ const Navbar = ({
 								height: 100,
 								bgcolor: 'black'
 							}}>
-							{!matches ? (
+							{!maxWidth1200 ? (
 								<Stack
 									className={styles.fade1200}
 									sx={{
@@ -105,7 +105,7 @@ const Navbar = ({
 										direction='row'
 										alignItems='center'
 										justifyContent='space-evenly'
-										sx={{ width: !matches2 ? '45%' : '60%' }}>
+										sx={{ width: !maxWidth900 ? '45%' : '60%' }}>
 										{obj.map((item, indx) => {
 											return (
 												<Typography
@@ -139,14 +139,14 @@ const Navbar = ({
 										justifyContent='center'
 										alignItems='center'>
 										<Typography
-											variant={!matches3 ? 'h4' : 'h5'}
+											variant={!maxWidth600 ? 'h4' : 'h5'}
 											sx={{ color: 'white', fontFamily: 'Orbitron' }}>
 											Mechanical Shop
 										</Typography>
 										<IconButton onClick={handleClick}>
 											<MenuIcon sx={{ fontSize: 40, color: 'white' }} />
 										</IconButton>
-										{matches3 ? (
+										{maxWidth600 ? (
 											<Menu
 												id='basic-menu'
 												anchorEl={anchorEl}

@@ -4,32 +4,32 @@ import SlideComp from '../SlideComp';
 
 const LayoutSection = ({
 	children,
-	matches,
+	maxWidth1200,
 	direction,
 	text,
 	mainText,
 	animation,
-	matches3
+	maxWidth600
 }) => {
 	return (
 		<Box sx={{ width: '100%', height: '50%' }}>
 			<SlideComp slide={animation}>
 				<Stack
 					className='fade1200'
-					direction={!matches ? direction : 'column'}
-					spacing={!matches3 ? 5 : 8}
+					direction={!maxWidth1200 ? direction : 'column'}
+					spacing={!maxWidth600 ? 5 : 8}
 					alignItems='center'
 					sx={{ width: '100%', height: '100%' }}>
 					<Box
 						sx={{
-							width: !matches ? '50%' : !matches3 ? '75%' : '100%'
+							width: !maxWidth1200 ? '50%' : !maxWidth600 ? '75%' : '100%'
 						}}>
 						<Stack
 							direction='column'
 							spacing={2}
 							sx={{
 								boxShadow: '3px 7px 10px rgba(206, 218, 236, 1)',
-								width: !matches3 ? '75%' : '100%',
+								width: !maxWidth600 ? '75%' : '100%',
 								margin: 'auto',
 								p: 3
 							}}>
@@ -49,7 +49,7 @@ const LayoutSection = ({
 						justifyContent='center'
 						alignItems='center'
 						sx={{
-							width: !matches ? '50%' : '75%',
+							width: !maxWidth1200 ? '50%' : '75%',
 							height: '100%'
 						}}>
 						{children}

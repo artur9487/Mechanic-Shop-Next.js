@@ -8,17 +8,17 @@ import { CardMedia, CardContent } from '@mui/material';
 import LayoutSection from './LayoutSection';
 import styles from '/styles/Homes.module.scss';
 
-const SecondSection = ({ matches, matches3 }) => {
+const SecondSection = ({ maxWidth1200, maxWidth600 }) => {
 	return (
 		<Box className={styles.fade600}>
 			<Stack
 				className={styles.fade1200}
 				direction='column'
-				spacing={!matches3 ? 5 : 8}>
+				spacing={!maxWidth600 ? 5 : 8}>
 				<LayoutSection
 					animation={styles.visi1}
-					matches={matches}
-					matches3={matches3}
+					maxWidth1200={maxWidth1200}
+					maxWidth600={maxWidth600}
 					direction='row'
 					mainText='Historical Perspective'
 					text='Our group exists for 2000 years. Every year we are developing
@@ -27,8 +27,8 @@ const SecondSection = ({ matches, matches3 }) => {
 					<Card
 						sx={{
 							boxShadow: '10px 15px 10px rgba(206, 218, 236, 1)',
-							width: !matches3 ? 400 : 300,
-							minHeight: !matches ? 300 : 180,
+							width: !maxWidth600 ? 400 : 300,
+							minHeight: !maxWidth1200 ? 300 : 180,
 							position: 'relative',
 							borderRadius: 10,
 							overflow: 'hidden'
@@ -40,8 +40,8 @@ const SecondSection = ({ matches, matches3 }) => {
 				</LayoutSection>
 				<LayoutSection
 					animation={styles.visi2}
-					matches={matches}
-					matches3={matches3}
+					maxWidth1200={maxWidth1200}
+					maxWidth600={maxWidth600}
 					direction='row-reverse'
 					mainText='Our Team'
 					text='Our team is qualified to do the most 
@@ -49,8 +49,8 @@ const SecondSection = ({ matches, matches3 }) => {
 					<Stack
 						sx={{
 							py: 4,
-							px: !matches3 ? 7 : 0,
-							boxShadow: !matches3
+							px: !maxWidth600 ? 7 : 0,
+							boxShadow: !maxWidth600
 								? '3px 7px 10px rgba(206, 218, 236, 1)'
 								: null
 						}}
@@ -62,8 +62,8 @@ const SecondSection = ({ matches, matches3 }) => {
 								<Card
 									key={indx}
 									sx={{
-										width: !matches3 ? 150 : 100,
-										height: !matches3 ? 250 : 190,
+										width: !maxWidth600 ? 150 : 100,
+										height: !maxWidth600 ? 250 : 190,
 										borderRadius: 5,
 										overflow: 'hidden'
 									}}>

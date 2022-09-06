@@ -3,17 +3,18 @@ import { Box, Typography } from '@mui/material';
 import SlideComp from './SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const LayoutComp = ({ children, title, myRef, matches, matches3 }) => {
+const LayoutComp = ({ children, title, myRef, maxWidth1200, maxWidth600 }) => {
 	return (
 		<>
 			<section>
 				<Box
 					ref={myRef}
 					sx={{
-						height: !matches ? '100vh' : '100%',
-						px: !matches3 ? 5 : 4,
-						py: !matches3 ? 5 : 4,
-						position: 'relative'
+						height: !maxWidth1200 ? '100vh' : '100%',
+						px: !maxWidth600 ? 5 : 4,
+						py: !maxWidth600 ? 5 : 4,
+						position: 'relative',
+						overflow: 'hidden'
 					}}>
 					<Box>
 						<SlideComp slide={styles.visi}>

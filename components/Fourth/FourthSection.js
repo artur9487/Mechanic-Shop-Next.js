@@ -10,7 +10,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Image from 'next/image';
 import VisibilitySensor from 'react-visibility-sensor';
 
-const FourthSection = ({ matches3 }) => {
+const FourthSection = ({ maxWidth600 }) => {
 	const [index, setIndex] = useState(0);
 	const [isVisible, setVisible] = useState(false);
 
@@ -33,7 +33,7 @@ const FourthSection = ({ matches3 }) => {
 		}
 	];
 
-	const iconData = { fontSize: !matches3 ? 70 : 40, color: 'white' };
+	const iconData = { fontSize: !maxWidth600 ? 70 : 40, color: 'white' };
 
 	return (
 		<>
@@ -53,7 +53,7 @@ const FourthSection = ({ matches3 }) => {
 						sx={{
 							maxWidth: 900,
 							margin: 'auto',
-							border: !matches3 ? 30 : 15,
+							border: !maxWidth600 ? 30 : 15,
 							borderColor: 'rgba(206, 218, 236, 0.1)',
 							borderRadius: 15,
 							overflow: 'hidden',
@@ -78,12 +78,12 @@ const FourthSection = ({ matches3 }) => {
 												sx={{
 													p: 1,
 													margin: 'auto',
-													width: !matches3 ? 400 : 200,
+													width: !maxWidth600 ? 400 : 200,
 													borderRadius: 20
 												}}
 												className={styles.contentBox}>
 												<Typography
-													variant={!matches3 ? 'h4' : 'h6'}
+													variant={!maxWidth600 ? 'h4' : 'h6'}
 													sx={{ fontFamily: 'Orbitron', color: 'black' }}>
 													{item.title}
 												</Typography>

@@ -5,7 +5,7 @@ import Rating from '@mui/material/Rating';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const FifthSection = ({ matches, matches3 }) => {
+const FifthSection = ({ maxWidth1200, maxWidth600 }) => {
 	const obj = [
 		{
 			avatar: '/Avatars/0.jpg',
@@ -54,17 +54,17 @@ const FifthSection = ({ matches, matches3 }) => {
 							<Stack
 								sx={{
 									bgcolor: 'white',
-									mb: !matches ? 3 : !matches3 ? 6 : 3,
+									mb: !maxWidth1200 ? 3 : !maxWidth600 ? 6 : 3,
 									marginLeft:
-										(indx === 1 && !matches) ||
-										(indx === 3 && !matches) ||
-										matches
+										(indx === 1 && !maxWidth1200) ||
+										(indx === 3 && !maxWidth1200) ||
+										maxWidth1200
 											? 'auto'
 											: '15%',
-									marginRight: !matches ? '15%' : 'auto',
+									marginRight: !maxWidth1200 ? '15%' : 'auto',
 									borderRadius: 10,
 									boxShadow: '10px 10px 10px rgb(219, 228, 240)',
-									width: !matches ? '50%' : !matches3 ? '80%' : '100%',
+									width: !maxWidth1200 ? '50%' : !maxWidth600 ? '80%' : '100%',
 									height: 150,
 									p: 3
 								}}>
@@ -77,7 +77,7 @@ const FifthSection = ({ matches, matches3 }) => {
 										width: '100%',
 										height: '100%'
 									}}>
-									{!matches3 ? (
+									{!maxWidth600 ? (
 										<Box
 											sx={{
 												position: 'relative',
@@ -97,17 +97,17 @@ const FifthSection = ({ matches, matches3 }) => {
 
 									<Stack
 										spacing={2}
-										sx={{ width: !matches3 ? '75%' : '100%' }}
+										sx={{ width: !maxWidth600 ? '75%' : '100%' }}
 										direction='column'>
 										<Stack
 											direction='row'
-											spacing={!matches3 ? 4 : 2}
+											spacing={!maxWidth600 ? 4 : 2}
 											alignItems='center'>
 											<Typography
 												sx={{
 													fontFamily: 'Orbitron',
 													color: 'gray',
-													fontSize: !matches3 ? 13 : 12
+													fontSize: !maxWidth600 ? 13 : 12
 												}}>
 												{date}
 											</Typography>
@@ -116,7 +116,7 @@ const FifthSection = ({ matches, matches3 }) => {
 										<Typography
 											sx={{
 												fontFamily: 'Orbitron',
-												fontSize: !matches3 ? 13 : 12
+												fontSize: !maxWidth600 ? 13 : 12
 											}}>
 											{comment}
 										</Typography>

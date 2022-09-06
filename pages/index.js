@@ -28,9 +28,9 @@ export default function Home() {
 		}
 	});
 
-	const matches = useMediaQuery('(max-width:1200px');
-	const matches2 = useMediaQuery('(max-width:900px');
-	const matches3 = useMediaQuery('(max-width:600px');
+	const maxWidth1200 = useMediaQuery('(max-width:1200px');
+	const maxWidth900 = useMediaQuery('(max-width:900px');
+	const maxWidth600 = useMediaQuery('(max-width:600px');
 
 	const myRef1 = useRef(null);
 	const myRef2 = useRef(null);
@@ -53,54 +53,64 @@ export default function Home() {
 					myRef4={myRef4}
 					myRef5={myRef5}
 					myRef6={myRef6}
-					matches={matches}
-					matches2={matches2}
-					matches3={matches3}
+					maxWidth1200={maxWidth1200}
+					maxWidth900={maxWidth900}
+					maxWidth600={maxWidth600}
 				/>
-				<FirstSection myRef={myRef1} matches={matches} matches3={matches3} />
+				<FirstSection
+					myRef={myRef1}
+					maxWidth1200={maxWidth1200}
+					maxWidth600={maxWidth600}
+				/>
 				<Box className={styles.layout}>
 					<LayoutComp
 						myRef={myRef2}
-						matches={matches}
-						matches3={matches3}
+						maxWidth1200={maxWidth1200}
+						maxWidth600={maxWidth600}
 						title='About Us'>
 						<SecondSection
-							matches={matches}
-							matches2={matches2}
-							matches3={matches3}
+							maxWidth1200={maxWidth1200}
+							maxWidth900={maxWidth900}
+							maxWidth600={maxWidth600}
 						/>
 					</LayoutComp>
 					<LayoutComp
 						myRef={myRef3}
-						matches={matches}
-						matches3={matches3}
+						maxWidth1200={maxWidth1200}
+						maxWidth600={maxWidth600}
 						title='Offer'>
 						<ThirdSection
-							matches={matches}
-							matches2={matches2}
-							matches3={matches3}
+							maxWidth1200={maxWidth1200}
+							maxWidth900={maxWidth900}
+							maxWidth600={maxWidth600}
 						/>
 					</LayoutComp>
 					<LayoutComp
 						myRef={myRef4}
-						matches={matches}
-						matches3={matches3}
+						maxWidth1200={maxWidth1200}
+						maxWidth600={maxWidth600}
 						title='Gallery'>
-						<FourthSection matches3={matches3} />
+						<FourthSection maxWidth600={maxWidth600} />
 					</LayoutComp>
 					<LayoutComp
 						myRef={myRef5}
-						matches={matches}
-						matches3={matches3}
+						maxWidth1200={maxWidth1200}
+						maxWidth600={maxWidth600}
 						title='Recommendation'>
-						<FifthSection matches={matches} matches3={matches3} />
+						<FifthSection
+							maxWidth1200={maxWidth1200}
+							maxWidth600={maxWidth600}
+						/>
 					</LayoutComp>
 					<LayoutComp
 						myRef={myRef6}
-						matches={matches}
-						matches3={matches3}
+						maxWidth1200={maxWidth1200}
+						maxWidth600={maxWidth600}
 						title='Contacts'>
-						<SixthSection matches={matches} matches3={matches3} />
+						<SixthSection
+							maxWidth1200={maxWidth1200}
+							maxWidth600={maxWidth600}
+						/>
 					</LayoutComp>
 				</Box>
 			</ThemeProvider>
