@@ -5,11 +5,16 @@ import { useState } from 'react';
 import { Box } from '@mui/system';
 import styles from '/styles/Homes.module.scss';
 
-const SlideComp = ({ children, slide }) => {
-	const [isVisible, setVisible] = useState(false);
+interface slideComp_schema {
+	children: JSX.Element;
+	slide: string;
+}
+
+const SlideComp: React.FC<slideComp_schema> = ({ children, slide }) => {
+	const [isVisible, setVisible] = useState<boolean>(false);
 	return (
 		<VisibilitySensor
-			className={styles.visi}
+			className={styles.visible}
 			active={isVisible ? false : true}
 			partialVisibility
 			onChange={(isVisiblee) => {

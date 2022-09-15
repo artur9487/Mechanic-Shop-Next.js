@@ -5,15 +5,23 @@ import Rating from '@mui/material/Rating';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const FifthSection = ({ maxWidth1200, maxWidth600 }) => {
-	const obj = [
+interface fifthSection_schema {
+	maxWidth1200: boolean;
+	maxWidth600: boolean;
+}
+
+const FifthSection: React.FC<fifthSection_schema> = ({
+	maxWidth1200,
+	maxWidth600
+}) => {
+	const commentArray = [
 		{
 			avatar: '/Avatars/0.jpg',
 			comment:
 				'Yeah, the work is very fine, I am glad that I was their customer',
 			date: '10 July 2020',
 			rating: 4,
-			styl: styles.right
+			style: styles.slideToRight
 		},
 		{
 			avatar: '/Avatars/1.jpg',
@@ -21,7 +29,7 @@ const FifthSection = ({ maxWidth1200, maxWidth600 }) => {
 				'Oh my, the service was done 100% fine, their served me free oil!',
 			date: '10 October 2020',
 			rating: 5,
-			styl: styles.left
+			style: styles.slideToLeft
 		},
 
 		{
@@ -29,20 +37,20 @@ const FifthSection = ({ maxWidth1200, maxWidth600 }) => {
 			comment: '%@$*( %$(*&@#$ #$%@ (*&%$ @#$89',
 			date: '10 October 2021',
 			rating: 5,
-			styl: styles.right
+			style: styles.slideToRight
 		},
 		{
 			avatar: '/Avatars/3.jpg',
 			comment: 'I am their customer for 250 years and I was never disappointed',
 			date: '21 December 2021',
 			rating: 5,
-			styl: styles.left
+			style: styles.slideToLeft
 		}
 	];
 	return (
 		<>
-			{obj.map((item, indx) => {
-				const { avatar, comment, date, rating, styl } = item;
+			{commentArray.map((item, indx) => {
+				const { avatar, comment, date, rating, style } = item;
 				return (
 					<Stack
 						className={styles.fade1200}
@@ -50,7 +58,7 @@ const FifthSection = ({ maxWidth1200, maxWidth600 }) => {
 						direction='column'
 						sx={{ width: '100%' }}
 						alignItems='center'>
-						<SlideComp slide={styl}>
+						<SlideComp slide={style}>
 							<Stack
 								sx={{
 									bgcolor: 'white',
@@ -105,7 +113,6 @@ const FifthSection = ({ maxWidth1200, maxWidth600 }) => {
 											alignItems='center'>
 											<Typography
 												sx={{
-													fontFamily: 'Orbitron',
 													color: 'gray',
 													fontSize: !maxWidth600 ? 13 : 12
 												}}>
@@ -115,7 +122,6 @@ const FifthSection = ({ maxWidth1200, maxWidth600 }) => {
 										</Stack>
 										<Typography
 											sx={{
-												fontFamily: 'Orbitron',
 												fontSize: !maxWidth600 ? 13 : 12
 											}}>
 											{comment}

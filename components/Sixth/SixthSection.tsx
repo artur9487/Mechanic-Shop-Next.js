@@ -3,7 +3,87 @@ import { Box, Stack, Typography } from '@mui/material';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
 
-const SixthSection = ({ maxWidth1200, maxWidth600 }) => {
+interface sixthSection_schema {
+	maxWidth1200: boolean;
+	maxWidth600: boolean;
+}
+
+const SixthSection: React.FC<sixthSection_schema> = ({
+	maxWidth1200,
+	maxWidth600
+}) => {
+	interface adressArray_schema {
+		variant1:
+			| 'h3'
+			| 'h4'
+			| 'h5'
+			| 'h6'
+			| 'button'
+			| 'caption'
+			| 'h1'
+			| 'h2'
+			| 'inherit'
+			| 'overline'
+			| 'subtitle1'
+			| 'subtitle2'
+			| 'body1'
+			| 'body2';
+		variant2:
+			| 'h3'
+			| 'h4'
+			| 'h5'
+			| 'h6'
+			| 'button'
+			| 'caption'
+			| 'h1'
+			| 'h2'
+			| 'inherit'
+			| 'overline'
+			| 'subtitle1'
+			| 'subtitle2'
+			| 'body1'
+			| 'body2';
+		text: string;
+	}
+
+	const adressArray: adressArray_schema[] = [
+		{
+			variant1: 'h3',
+			variant2: 'h4',
+			text: '+12345'
+		},
+		{
+			variant1: 'h3',
+			variant2: 'h4',
+			text: 'Adress:'
+		},
+		{
+			variant1: 'h5',
+			variant2: 'h6',
+			text: 'Mechanic Street 42'
+		},
+		{
+			variant1: 'h3',
+			variant2: 'h4',
+			text: 'Hours of opening:'
+		},
+		{
+			variant1: 'h5',
+			variant2: 'h6',
+			text: 'monday-Friday 7:00-16:00'
+		},
+		{
+			variant1: 'h5',
+			variant2: 'h6',
+			text: 'Saturday 7:00-14:00'
+		},
+		{
+			variant1: 'h5',
+			variant2: 'h6',
+			text: 'Sunday Closet'
+		}
+	];
+
 	return (
 		<>
 			<Stack
@@ -64,41 +144,16 @@ const SixthSection = ({ maxWidth1200, maxWidth600 }) => {
 								sx={{ margin: 'auto', height: '100%' }}
 								direction='column'
 								justifyContent='space-evenly'>
-								<Typography
-									sx={{ fontFamily: 'Orbitron' }}
-									variant={!maxWidth600 ? 'h3' : 'h4'}>
-									+1234567
-								</Typography>
-								<Typography
-									sx={{ fontFamily: 'Orbitron' }}
-									variant={!maxWidth600 ? 'h3' : 'h4'}>
-									Adress:
-								</Typography>
-								<Typography
-									sx={{ fontFamily: 'Orbitron' }}
-									variant={!maxWidth600 ? 'h5' : 'h6'}>
-									Mechanic Street 42
-								</Typography>
-								<Typography
-									sx={{ fontFamily: 'Orbitron' }}
-									variant={!maxWidth600 ? 'h3' : 'h4'}>
-									Hours of opening:
-								</Typography>
-								<Typography
-									sx={{ fontFamily: 'Orbitron' }}
-									variant={!maxWidth600 ? 'h5' : 'h6'}>
-									monday-Friday 7:00-16:00
-								</Typography>
-								<Typography
-									sx={{ fontFamily: 'Orbitron' }}
-									variant={!maxWidth600 ? 'h5' : 'h6'}>
-									Saturday 7:00-14:00
-								</Typography>
-								<Typography
-									sx={{ fontFamily: 'Orbitron', color: 'red' }}
-									variant={!maxWidth600 ? 'h5' : 'h6'}>
-									Sunday Closet
-								</Typography>
+								{adressArray.map((item, indx) => {
+									const { variant1, variant2, text } = item;
+									return (
+										<Typography
+											key={indx}
+											variant={!maxWidth600 ? variant1 : variant2}>
+											{text}
+										</Typography>
+									);
+								})}
 							</Stack>
 						</Stack>
 					</SlideComp>
@@ -113,10 +168,10 @@ const SixthSection = ({ maxWidth1200, maxWidth600 }) => {
 					height: 100,
 					position: 'absolute',
 					bottom: 0,
-					right: 0,
+					slideToRight: 0,
 					bgcolor: 'black'
 				}}>
-				<Typography sx={{ color: 'white', fontFamily: 'Orbitron' }}>
+				<Typography sx={{ color: 'white' }}>
 					@2022 All Rights Reserved
 				</Typography>
 			</Stack>

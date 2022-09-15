@@ -1,20 +1,32 @@
 /** @format */
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, BoxTypeMap } from '@mui/material';
+import React, { MutableRefObject } from 'react';
 import Image from 'next/image';
-import img from '../../public/mech.gif';
-import img2 from '../../public/mech2.gif';
 import SlideComp from '../SlideComp';
 import styles from '/styles/Homes.module.scss';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 
-const FirstSection = ({ myRef, maxWidth1200, maxWidth600 }) => {
+interface firstSection_schema {
+	myRef: MutableRefObject<
+		MutableRefObject<OverridableComponent<BoxTypeMap<{}, 'div'>>>
+	>;
+	maxWidth1200: boolean;
+	maxWidth600: boolean;
+}
+
+const FirstSection: React.FC<firstSection_schema> = ({
+	myRef,
+	maxWidth1200,
+	maxWidth600
+}) => {
 	return (
 		<>
 			<section>
 				<Box
 					ref={myRef}
 					sx={{
-						width: '100%',
 						position: 'relative',
+						width: '100%',
 						height: '100vh'
 					}}>
 					{!maxWidth1200 ? (
@@ -33,7 +45,7 @@ const FirstSection = ({ myRef, maxWidth1200, maxWidth600 }) => {
 										priority={true}
 										objectFit='cover'
 										layout='fill'
-										src={img}
+										src={'/../public/mech.gif'}
 										alt='image'
 									/>
 								</Box>
@@ -56,7 +68,7 @@ const FirstSection = ({ myRef, maxWidth1200, maxWidth600 }) => {
 										priority={true}
 										objectFit='cover'
 										layout='fill'
-										src={img2}
+										src={'/../public/mech2.gif'}
 										alt='image'
 									/>
 								</Box>
@@ -71,11 +83,15 @@ const FirstSection = ({ myRef, maxWidth1200, maxWidth600 }) => {
 								top: 0,
 								left: 0
 							}}>
-							<Image objectFit='cover' layout='fill' src={img} alt='image' />
+							<Image
+								objectFit='cover'
+								layout='fill'
+								src={'/../public/mech.gif'}
+								alt='image'
+							/>
 						</Box>
 					)}
-
-					<SlideComp slide={styles.visi}>
+					<SlideComp slide={styles.visible}>
 						<Box
 							className={styles.fade600}
 							sx={{
@@ -100,8 +116,7 @@ const FirstSection = ({ myRef, maxWidth1200, maxWidth600 }) => {
 									fontSize={!maxWidth600 ? 60 : 30}
 									sx={{
 										color: 'black',
-										margin: 'auto',
-										fontFamily: 'Orbitron'
+										margin: 'auto'
 									}}>
 									Mechanical Shop
 								</Typography>
@@ -110,8 +125,7 @@ const FirstSection = ({ myRef, maxWidth1200, maxWidth600 }) => {
 									fontSize={!maxWidth600 ? 20 : 15}
 									sx={{
 										color: 'black',
-										margin: 'auto',
-										fontFamily: 'Orbitron'
+										margin: 'auto'
 									}}>
 									Mechanic Street 42
 								</Typography>

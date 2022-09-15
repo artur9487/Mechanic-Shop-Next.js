@@ -1,14 +1,23 @@
 /** @format */
 
 import { Typography, Stack, Box } from '@mui/material';
-import img from '../../public/mech3.jpg';
+//import img from '../../public/mech3.jpg';
 import Image from 'next/image';
 import { Card } from '@mui/material';
 import { CardMedia, CardContent } from '@mui/material';
 import LayoutSection from './LayoutSection';
 import styles from '/styles/Homes.module.scss';
+import React from 'react';
 
-const SecondSection = ({ maxWidth1200, maxWidth600 }) => {
+interface secondSection_schema {
+	maxWidth1200: boolean;
+	maxWidth600: boolean;
+}
+
+const SecondSection: React.FC<secondSection_schema> = ({
+	maxWidth1200,
+	maxWidth600
+}) => {
 	return (
 		<Box className={styles.fade600}>
 			<Stack
@@ -16,10 +25,10 @@ const SecondSection = ({ maxWidth1200, maxWidth600 }) => {
 				direction='column'
 				spacing={!maxWidth600 ? 5 : 8}>
 				<LayoutSection
-					animation={styles.visi1}
+					animation={styles.slideFromLeft}
 					maxWidth1200={maxWidth1200}
 					maxWidth600={maxWidth600}
-					direction='row'
+					allignDirection='row'
 					mainText='Historical Perspective'
 					text='Our group exists for 2000 years. Every year we are developing
 				new aproaches in the industry of the new technologies. We are
@@ -34,15 +43,20 @@ const SecondSection = ({ maxWidth1200, maxWidth600 }) => {
 							overflow: 'hidden'
 						}}>
 						<CardMedia>
-							<Image src={img} objectFit='cover' layout='fill' alt='image' />
+							<Image
+								src={'/../public/mech3.jpg'}
+								objectFit='cover'
+								layout='fill'
+								alt='image'
+							/>
 						</CardMedia>
 					</Card>
 				</LayoutSection>
 				<LayoutSection
-					animation={styles.visi2}
+					animation={styles.slideFromRight}
 					maxWidth1200={maxWidth1200}
 					maxWidth600={maxWidth600}
-					direction='row-reverse'
+					allignDirection='row-reverse'
 					mainText='Our Team'
 					text='Our team is qualified to do the most 
 				difficult things in the whole Universe. We are from different league.'>

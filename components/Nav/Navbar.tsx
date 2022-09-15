@@ -1,41 +1,67 @@
 /** @format */
-import { IconButton, Stack, Typography, Box } from '@mui/material';
+import { IconButton, Stack, Typography, Box, BoxTypeMap } from '@mui/material';
 import SlideComp from '../SlideComp';
-import { useRef, useState } from 'react';
+import { MutableRefObject, useRef, useState } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import styles from '/styles/Homes.module.scss';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import React from 'react';
 
-const Navbar = ({
-	myRef1,
-	myRef2,
-	myRef3,
-	myRef4,
-	myRef5,
-	myRef6,
+interface navbar_schema {
+	firstSectionRef: MutableRefObject<
+		MutableRefObject<OverridableComponent<BoxTypeMap<{}, 'div'>>>
+	>;
+	secondSectionRef: MutableRefObject<
+		OverridableComponent<BoxTypeMap<{}, 'div'>>
+	>;
+	thirdSectionRef: MutableRefObject<
+		OverridableComponent<BoxTypeMap<{}, 'div'>>
+	>;
+	fourthSectionRef: MutableRefObject<
+		OverridableComponent<BoxTypeMap<{}, 'div'>>
+	>;
+	fifthSectionRef: MutableRefObject<
+		OverridableComponent<BoxTypeMap<{}, 'div'>>
+	>;
+	sixthSectionRef: MutableRefObject<
+		OverridableComponent<BoxTypeMap<{}, 'div'>>
+	>;
+	maxWidth1200: boolean;
+	maxWidth900: boolean;
+	maxWidth600: boolean;
+}
+
+const Navbar: React.FC<navbar_schema> = ({
+	firstSectionRef,
+	secondSectionRef,
+	thirdSectionRef,
+	fourthSectionRef,
+	fifthSectionRef,
+	sixthSectionRef,
 	maxWidth1200,
 	maxWidth900,
 	maxWidth600
 }) => {
-	const func = (refik) => {
+	const scrollFunction: (reference: any) => void = (reference) => {
 		return window.scroll({
 			behavior: 'smooth',
-			top: refik.current.offsetTop - 100
+			top: reference.current.offsetTop - 100
 		});
 	};
 
 	const navRef = useRef(null);
 	const obj = [
-		{ name: 'Home', action: () => func(myRef1) },
+		{ name: 'Home', action: () => scrollFunction(firstSectionRef) },
 		{
 			name: 'About us',
-			action: () => func(myRef2)
+			action: () => scrollFunction(secondSectionRef)
 		},
-		{ name: 'Offert', action: () => func(myRef3) },
-		{ name: 'Gallery', action: () => func(myRef4) },
-		{ name: 'Reccomendation', action: () => func(myRef5) },
-		{ name: 'Contact', action: () => func(myRef6) }
+		{ name: 'Offert', action: () => scrollFunction(thirdSectionRef) },
+		{ name: 'Gallery', action: () => scrollFunction(fourthSectionRef) },
+		{ name: 'Reccomendation', action: () => scrollFunction(fifthSectionRef) },
+		{ name: 'Contact', action: () => scrollFunction(sixthSectionRef) }
 	];
 	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
@@ -56,7 +82,7 @@ const Navbar = ({
 					item.action();
 					handleClose();
 				}}>
-				<Typography sx={{ fontFamily: 'Orbitron' }}>{item.name}</Typography>
+				<Typography sx={{}}>{item.name}</Typography>
 			</MenuItem>
 		);
 	});
@@ -71,12 +97,12 @@ const Navbar = ({
 					sx={{
 						position: 'fixed',
 						top: 0,
-						right: 0,
+						slideToRight: 0,
 						zIndex: 999,
-						left: 0,
+						slideToLeft: 0,
 						bottom: 100
 					}}>
-					<SlideComp slide={styles.visi}>
+					<SlideComp slide={styles.visible}>
 						<Stack
 							direction='row'
 							alignItems='center'
@@ -96,8 +122,7 @@ const Navbar = ({
 									<Typography
 										variant='h5'
 										sx={{
-											color: 'white',
-											fontFamily: 'Orbitron'
+											color: 'white'
 										}}>
 										Mechanical Shop
 									</Typography>
@@ -113,7 +138,6 @@ const Navbar = ({
 													component='div'
 													onClick={() => item.action()}
 													sx={{
-														fontFamily: 'Orbitron',
 														color: 'white',
 														cursor: 'pointer',
 														'&:hover': {
@@ -140,7 +164,7 @@ const Navbar = ({
 										alignItems='center'>
 										<Typography
 											variant={!maxWidth600 ? 'h4' : 'h5'}
-											sx={{ color: 'white', fontFamily: 'Orbitron' }}>
+											sx={{ color: 'white' }}>
 											Mechanical Shop
 										</Typography>
 										<IconButton onClick={handleClick}>

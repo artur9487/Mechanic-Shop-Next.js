@@ -5,20 +5,27 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import styles from '/styles/Homes.module.scss';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Image from 'next/image';
 import VisibilitySensor from 'react-visibility-sensor';
 
-const FourthSection = ({ maxWidth600 }) => {
-	const [index, setIndex] = useState(0);
-	const [isVisible, setVisible] = useState(false);
+interface fourthSection_schema {
+	maxWidth600: boolean;
+}
 
-	const handleSelect = (selectedIndex, e) => {
+const FourthSection: React.FC<fourthSection_schema> = ({ maxWidth600 }) => {
+	const [index, setIndex] = useState<number>(0);
+	const [isVisible, setVisible] = useState<boolean>(false);
+
+	const handleSelect: (selectedIndex: number) => void = (selectedIndex) => {
 		setIndex(selectedIndex);
 	};
 
-	const obj = [
+	interface carouselObject_schema {
+		title: string;
+		photo: string;
+	}
+
+	const carouselObject: carouselObject_schema[] = [
 		{
 			title: 'Metropolian City',
 			photo: '/Work/0.jpg'
@@ -32,8 +39,6 @@ const FourthSection = ({ maxWidth600 }) => {
 			photo: '/Work/2.jpg'
 		}
 	];
-
-	const iconData = { fontSize: !maxWidth600 ? 70 : 40, color: 'white' };
 
 	return (
 		<>
@@ -49,7 +54,7 @@ const FourthSection = ({ maxWidth600 }) => {
 						width: '100%'
 					}}>
 					<Box
-						className={isVisible ? styles.visi : styles.none}
+						className={isVisible ? styles.visible : styles.none}
 						sx={{
 							maxWidth: 900,
 							margin: 'auto',
@@ -64,7 +69,7 @@ const FourthSection = ({ maxWidth600 }) => {
 							className={styles.carousel}
 							activeIndex={index}
 							onSelect={handleSelect}>
-							{obj.map((item, indx) => {
+							{carouselObject.map((item, indx) => {
 								return (
 									<Carousel.Item className={styles.carouselItem} key={indx}>
 										<Image
@@ -84,7 +89,7 @@ const FourthSection = ({ maxWidth600 }) => {
 												className={styles.contentBox}>
 												<Typography
 													variant={!maxWidth600 ? 'h4' : 'h6'}
-													sx={{ fontFamily: 'Orbitron', color: 'black' }}>
+													sx={{ color: 'black' }}>
 													{item.title}
 												</Typography>
 											</Box>

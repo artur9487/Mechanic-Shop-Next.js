@@ -1,11 +1,26 @@
 /** @format */
 import { Box, Stack, Typography } from '@mui/material';
 import SlideComp from '../SlideComp';
+import React from 'react';
+import styles from '/styles/Homes.module.scss';
+import { ResponsiveStyleValue } from '@mui/system';
 
-const LayoutSection = ({
+interface layoutSection_schema {
+	children: JSX.Element;
+	maxWidth1200: boolean;
+	allignDirection: ResponsiveStyleValue<
+		'row' | 'column' | 'row-reverse' | 'column-reverse'
+	>;
+	text: string;
+	mainText: string;
+	animation: string;
+	maxWidth600: boolean;
+}
+
+const LayoutSection: React.FC<layoutSection_schema> = ({
 	children,
 	maxWidth1200,
-	direction,
+	allignDirection,
 	text,
 	mainText,
 	animation,
@@ -15,8 +30,8 @@ const LayoutSection = ({
 		<Box sx={{ width: '100%', height: '50%' }}>
 			<SlideComp slide={animation}>
 				<Stack
-					className='fade1200'
-					direction={!maxWidth1200 ? direction : 'column'}
+					className={styles.fade1200}
+					direction={!maxWidth1200 ? allignDirection : 'column'}
 					spacing={!maxWidth600 ? 5 : 8}
 					alignItems='center'
 					sx={{ width: '100%', height: '100%' }}>
@@ -33,14 +48,10 @@ const LayoutSection = ({
 								margin: 'auto',
 								p: 3
 							}}>
-							<Typography
-								sx={{ fontFamily: 'Orbitron' }}
-								textAlign='center'
-								fontSize={30}>
+							<Typography sx={{}} textAlign='center' fontSize={30}>
 								{mainText}
 							</Typography>
-							<Typography
-								sx={{ color: 'black', width: '100%', fontFamily: 'Orbitron' }}>
+							<Typography sx={{ color: 'black', width: '100%' }}>
 								{text}
 							</Typography>
 						</Stack>

@@ -16,34 +16,43 @@ import ScreenRotationAltIcon from '@mui/icons-material/ScreenRotationAlt';
 import CountUp from 'react-countup';
 import SlideComp from '../SlideComp';
 import VisibilitySensor from 'react-visibility-sensor';
-import { useState, useRef, createRef } from 'react';
+import { useState, useRef, createRef, MutableRefObject, Ref } from 'react';
 import styles from '/styles/Homes.module.scss';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 
-const ThirdSection = ({ maxWidth1200, maxWidth900, maxWidth600 }) => {
+interface thirdSection_schema {
+	maxWidth1200: boolean;
+	maxWidth600: boolean;
+}
+
+const ThirdSection: React.FC<thirdSection_schema> = ({
+	maxWidth1200,
+	maxWidth600
+}) => {
 	const cardRef = useRef(null);
-	const [isVisible, setVisible] = useState(false);
-	const iconSize = 100;
+	const [isVisible, setVisible] = useState<boolean>(false);
+	const iconSize: number = 100;
 
 	const obj = [
 		{
 			name: 'Repairings',
 			comp: <BuildIcon style={{ fontSize: iconSize }} />,
-			styl: styles.thirdCard0
+			style: styles.thirdCard0
 		},
 		{
 			name: 'Laser cuts',
 			comp: <HighlightIcon style={{ fontSize: iconSize }} />,
-			styl: styles.thirdCard1
+			style: styles.thirdCard1
 		},
 		{
 			name: 'Parts enchange',
 			comp: <ScreenRotationAltIcon style={{ fontSize: iconSize }} />,
-			styl: styles.thirdCard2
+			style: styles.thirdCard2
 		},
 		{
 			name: 'Refueling',
 			comp: <MeetingRoomIcon style={{ fontSize: iconSize }} />,
-			styl: styles.thirdCard3
+			style: styles.thirdCard3
 		}
 	];
 
@@ -77,7 +86,7 @@ const ThirdSection = ({ maxWidth1200, maxWidth900, maxWidth600 }) => {
 							md={3}
 							container
 							item>
-							<SlideComp slide={item.styl}>
+							<SlideComp slide={item.style}>
 								<Stack
 									direction='row'
 									justifyContent='center'
@@ -104,9 +113,7 @@ const ThirdSection = ({ maxWidth1200, maxWidth900, maxWidth600 }) => {
 											{item.comp}
 										</CardMedia>
 										<CardContent>
-											<Typography
-												sx={{ fontFamily: 'Orbitron', fontSize: 17 }}
-												textAlign='center'>
+											<Typography sx={{ fontSize: 17 }} textAlign='center'>
 												{item.name}
 											</Typography>
 										</CardContent>
@@ -142,14 +149,13 @@ const ThirdSection = ({ maxWidth1200, maxWidth900, maxWidth600 }) => {
 						}}>
 						<CardContent>
 							<Typography
-								sx={{ fontFamily: 'Orbitron', fontSize: 17, mb: 3, mt: 2 }}
+								sx={{ fontSize: 17, mb: 3, mt: 2 }}
 								textAlign='center'>
 								Satisfied Customers:
 							</Typography>
 
 							<Typography
 								sx={{
-									fontFamily: 'Orbitron',
 									fontSize: !maxWidth600 ? 60 : 40
 								}}
 								textAlign='center'>

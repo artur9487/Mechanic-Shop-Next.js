@@ -1,12 +1,5 @@
 /** @format */
 
-/*.workImg {
-	object-fit: cover;
-	width: 100%;
-	height: 600px;
-	border-radius: 50px;
-}*/
-
 @mixin cardItem_theme($name, $delay) {
 	animation-name: $name;
 	animation-duration: 4s;
@@ -16,14 +9,14 @@
 }
 
 .cardItem0 {
-	@include cardItem_theme($name: slide0, $delay: 0s);
+	@include cardItem_theme($name: slideToRightAnimation, $delay: 0s);
 }
 
 .cardItem05 {
-	@include cardItem_theme($name: slide05, $delay: 0.5s);
+	@include cardItem_theme($name: slideToLeftAnimation, $delay: 0.5s);
 }
 
-@keyframes slide0 {
+@keyframes slideToRightAnimation {
 	from {
 		opacity: 0;
 		transform: translateX(-100px);
@@ -34,7 +27,7 @@
 	}
 }
 
-@keyframes slide05 {
+@keyframes slideToLeftAnimation {
 	from {
 		opacity: 0;
 		transform: translateX(100px);
@@ -48,26 +41,26 @@
 	opacity: 0;
 }
 
-@mixin visi_theme($name) {
+@mixin visibility_theme($name) {
 	opacity: 0;
 	animation-duration: 4s;
 	animation-fill-mode: forwards;
 	animation-name: $name;
 }
 
-.visi {
-	@include visi_theme($name: slid);
+.visible {
+	@include visibility_theme($name: opacityAnimation);
 }
 
-.visi1 {
-	@include visi_theme($name: slide0);
+.slideFromLeft {
+	@include visibility_theme($name: slideToRightAnimation);
 }
 
-.visi2 {
-	@include visi_theme($name: slide05);
+.slideFromRight {
+	@include visibility_theme($name: slideToLeftAnimation);
 }
 
-@keyframes slid {
+@keyframes opacityAnimation {
 	from {
 		opacity: 0;
 	}
@@ -267,36 +260,9 @@
 		linear-gradient(336deg, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0) 70.71%);
 }
 
-@mixin push_theme($ann) {
-	animation-name: $ann;
-	animation-duration: 4s;
-	opacity: 0;
-	animation-fill-mode: forwards;
+.slideToRight {
+	@include cardItem_theme($name: slideToRightAnimation, $delay: 0s);
 }
-
-.right {
-	@include push_theme(right_ann);
-}
-.left {
-	@include push_theme(left_ann);
-}
-
-@keyframes right_ann {
-	0% {
-		transform: translateX(-100px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0px);
-	}
-}
-
-@keyframes left_ann {
-	0% {
-		transform: translateX(100px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0px);
-	}
+.slideToLeft {
+	@include cardItem_theme($name: slideToLeftAnimation, $delay: 0s);
 }

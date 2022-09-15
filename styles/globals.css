@@ -22,3 +22,10 @@ a {
 	padding: 0;
 	margin: 0;
 }
+
+@font-face {
+	font-family: Orbitron-Regular;
+	src: url('/fonts/Orbitron-Regular.ttf');
+	format: ('ttf');
+	font-display: swap;
+}
