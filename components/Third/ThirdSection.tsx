@@ -6,8 +6,7 @@ import {
 	Card,
 	CardMedia,
 	Stack,
-	Grid,
-	Box
+	Grid
 } from '@mui/material';
 import BuildIcon from '@mui/icons-material/Build';
 import HighlightIcon from '@mui/icons-material/Highlight';

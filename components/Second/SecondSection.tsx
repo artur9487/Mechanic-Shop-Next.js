@@ -44,7 +44,7 @@ const SecondSection: React.FC<secondSection_schema> = ({
 						}}>
 						<CardMedia>
 							<Image
-								src={'/../public/mech3.jpg'}
+								src={'/Group/mech3.jpg'}
 								objectFit='cover'
 								layout='fill'
 								alt='image'

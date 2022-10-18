@@ -164,9 +164,10 @@ const SixthSection: React.FC<sixthSection_schema> = ({
 				justifyContent='center'
 				alignItems='center'
 				sx={{
-					width: '100%',
+					width: '100vw',
 					height: 100,
 					position: 'absolute',
+					left: 0,
 					bottom: 0,
 					slideToRight: 0,
 					bgcolor: 'black'

@@ -45,7 +45,7 @@ const FirstSection: React.FC<firstSection_schema> = ({
 										priority={true}
 										objectFit='cover'
 										layout='fill'
-										src={'/../public/mech.gif'}
+										src={'/Group/mech.gif'}
 										alt='image'
 									/>
 								</Box>
@@ -68,7 +68,7 @@ const FirstSection: React.FC<firstSection_schema> = ({
 										priority={true}
 										objectFit='cover'
 										layout='fill'
-										src={'/../public/mech2.gif'}
+										src={'/Group/mech2.gif'}
 										alt='image'
 									/>
 								</Box>
@@ -86,7 +86,7 @@ const FirstSection: React.FC<firstSection_schema> = ({
 							<Image
 								objectFit='cover'
 								layout='fill'
-								src={'/../public/mech.gif'}
+								src={'/Group/mech.gif'}
 								alt='image'
 							/>
 						</Box>
